@@ -2,7 +2,6 @@ package com.rubygames.assass
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
@@ -51,40 +50,42 @@ class ASFActivity : AppCompatActivity() {
        var naming: String? = Hawk.get(C1)
 
        if (appsCh == "1") {
-           Log.d("AppsChecker", appsCh)
            val executorService = Executors.newSingleThreadScheduledExecutor()
            executorService.scheduleAtFixedRate({
                if (naming != null) {
                    if (naming!!.contains("tdb2") || countriesPool.contains(countyC) || deeplink!!.contains("tdb2")) {
                        executorService.shutdown()
-                       intWE()
+                       we()
                    } else {
                        executorService.shutdown()
-                       intLONE()
+                       lone()
                    }
                } else {
                    naming = Hawk.get(C1)
                }
            }, 0, 1, TimeUnit.SECONDS)
        }  else if (countriesPool.contains(countyC)) {
-           intWE()
+           we()
        } else {
-           intLONE()
+           lone()
        }
    }
 
-    private fun intLONE() {
+    private fun lone() {
         val intent = Intent(this@ASFActivity, MenuActivity::class.java)
         Hawk.put(geo, null)
         Hawk.put(countryCode, null)
+        Hawk.put(appsCheck, null)
+
         startActivity(intent)
         finish()
     }
 
-    private fun intWE() {
+    private fun we() {
         val intent = Intent(this@ASFActivity, WIS::class.java)
         Hawk.put(geo, null)
         Hawk.put(countryCode, null)
+        Hawk.put(appsCheck, null)
 
         startActivity(intent)
         finish()
