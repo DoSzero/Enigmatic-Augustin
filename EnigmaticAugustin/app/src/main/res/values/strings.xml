@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Enigmatic Augustin</string>
+
+    <string name="congratulations_text">Congratulations!</string>
+    <string name="steps_text">Step</string>
+    <string name="start_game_button_text">Start the game</string>
+
+    <string name="image_chooser">Pick Your Image</string>
+    <string name="facebook_app_id">884657619610830</string>
+    <string name="fb_login_protocol_scheme">fb884657619610830</string>
+</resources>
